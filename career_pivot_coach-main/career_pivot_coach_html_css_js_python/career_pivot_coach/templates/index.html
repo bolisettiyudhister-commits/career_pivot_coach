@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PivotPath | Career Pivot Coach</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">↗</span> PivotPath</a>
+    <nav><a href="#roadmap">Roadmap</a><a href="#portfolio">Portfolio</a><a href="#applications">Applications</a></nav>
+    <span class="status"><i></i> Your career workspace</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Make your next<br><span>career move</span> with clarity.</h1>
+        <p class="hero-copy">Turn your experience into a practical plan. Map your skills, build proof of your abilities, and prepare for the roles you want.</p>
+        <a class="primary-btn" href="#profile">Build my career plan <b>→</b></a>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="center-mark">P<span>↗</span></div>
+        <div class="float-card card-top">✦ &nbsp; Skills with direction</div>
+        <div class="float-card card-bottom"><b>01 / 04</b><br><small>Your next step, made clear</small></div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong id="task-count">0</strong><span>Tasks completed</span></div>
+      <div><strong id="app-count">0</strong><span>Applications tracked</span></div>
+      <div><strong id="progress-percent">0%</strong><span>Plan progress</span></div>
+    </section>
+
+    <section class="section" id="profile">
+      <div class="section-heading"><div><p class="eyebrow">01 — START WITH YOU</p><h2>Your career snapshot</h2></div><p>Tell us where you are going. Your details shape the roadmap.</p></div>
+      <div class="panel profile-grid">
+        <label>Current role / background<input id="current" placeholder="e.g. B.Tech CSE student"></label>
+        <label>Target role<input id="target" placeholder="e.g. Python developer"></label>
+        <label class="wide">Skills you already have<input id="skills" placeholder="e.g. Python, HTML, communication"></label>
+        <label class="wide">Paste a job description<textarea id="job-description" rows="4" placeholder="Paste a real job description here to identify its key requirements..."></textarea></label>
+        <button class="primary-btn" id="analyze-btn">Analyze my skill gaps <b>→</b></button>
+      </div>
+      <div class="panel result-panel hidden" id="gap-result">
+        <h3>Your skill-gap map</h3><p id="gap-summary"></p><div id="gap-tags" class="tags"></div>
+        <p class="hint">This is a keyword-based first-pass analysis of the job description you provide, not an automated hiring assessment.</p>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="section-heading"><div><p class="eyebrow">02 — MAKE A PLAN</p><h2>Your 4-week learning roadmap</h2></div><button class="outline-btn" id="make-plan">Generate my plan ↗</button></div>
+      <div id="roadmap-list" class="roadmap-list">
+        <div class="empty-state">Add your target role and select “Generate my plan” to get started.</div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="section-heading"><div><p class="eyebrow">03 — SHOW YOUR SKILLS</p><h2>Portfolio project ideas</h2></div></div>
+      <div class="project-grid">
+        <article class="project-card"><span class="project-number">PROJECT 01</span><h3>Personal portfolio</h3><p>Create a responsive site that introduces you, highlights projects, and links to your work.</p><span class="chip">HTML · CSS · JavaScript</span></article>
+        <article class="project-card"><span class="project-number">PROJECT 02</span><h3>Role-focused mini app</h3><p>Build a small tool that solves a problem relevant to your target job description.</p><span class="chip">Problem solving · Practical skills</span></article>
+        <article class="project-card"><span class="project-number">PROJECT 03</span><h3>Data or API project</h3><p>Use a public dataset or API, explain your process, and present useful results.</p><span class="chip">Python · Documentation</span></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><div><p class="eyebrow">04 — PRACTISE WITH PURPOSE</p><h2>Mock interview practice</h2></div></div>
+      <div class="panel interview">
+        <div><span class="chip">INTERVIEW PROMPT</span><h3 id="question">Tell me about yourself and why you're interested in this role.</h3><p>Write a practice answer, then review it against the rubric.</p></div>
+        <div class="interview-work"><textarea id="answer" rows="5" placeholder="Write your answer here..."></textarea><button class="primary-btn" id="score-answer">Review my answer</button><div id="score-result" class="score-result hidden"></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="applications">
+      <div class="section-heading"><div><p class="eyebrow">05 — LEARN FROM EVERY APPLICATION</p><h2>Application tracker</h2></div></div>
+      <div class="panel">
+        <div class="application-form"><input id="company" placeholder="Company"><input id="role" placeholder="Role"><select id="outcome"><option>Applied</option><option>Interview</option><option>Rejected</option><option>Offer</option></select><button class="primary-btn" id="add-application">Add application +</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Company</th><th>Role</th><th>Status</th><th></th></tr></thead><tbody id="application-rows"><tr><td colspan="4" class="empty-cell">No applications yet.</td></tr></tbody></table></div>
+        <p class="hint" id="application-insight">Add outcomes to spot which role types are getting responses.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><div><p class="eyebrow">06 — KEEP MOVING</p><h2>Progress checklist</h2></div></div>
+      <div class="panel">
+        <div class="progress-head"><span>Your weekly actions</span><b id="check-progress">0 / 4 complete</b></div><div class="progress-track"><div id="progress-fill"></div></div>
+        <div class="checklist" id="checklist">
+          <label><input type="checkbox"> Update my resume for the target role</label>
+          <label><input type="checkbox"> Complete one focused learning session</label>
+          <label><input type="checkbox"> Make progress on a portfolio project</label>
+          <label><input type="checkbox"> Practise one interview question</label>
+        </div>
+        <button class="outline-btn export-btn" id="export-data">Export my progress (JSON) ↓</button>
+      </div>
+    </section>
+    <footer>PivotPath · A clearer path to your next opportunity.</footer>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
